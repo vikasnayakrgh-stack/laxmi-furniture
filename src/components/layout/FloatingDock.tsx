@@ -40,9 +40,9 @@ export function FloatingDock() {
       {/* Floating Call Showroom Pill (Desktop) */}
       <a
         href="tel:18002674445"
-        className="hidden md:flex fixed left-5 bottom-6 z-40 items-center gap-2 bg-white text-[#1C1917] border border-[#E9E3DC] rounded-full shadow-xl px-4 py-2 text-xs font-bold hover:text-[#F16521] active:scale-95 transition-all"
+        className="hidden md:flex fixed left-5 bottom-6 z-40 items-center gap-2 bg-white text-[#111827] border border-[#E5E7EB] rounded-full shadow-xl px-4 py-2 text-xs font-bold hover:text-[#F97316] active:scale-95 transition-all"
       >
-        <span className="w-7 h-7 rounded-full bg-[#F16521] text-white flex items-center justify-center shrink-0">
+        <span className="w-7 h-7 rounded-full bg-[#F97316] text-white flex items-center justify-center shrink-0">
           <PhoneCall className="w-3.5 h-3.5" />
         </span>
         <span>Call: 1800-267-4445</span>
@@ -52,7 +52,7 @@ export function FloatingDock() {
       {showToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed left-3.5 bottom-[72px] md:left-auto md:right-5 md:bottom-20 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1C1917] text-white flex items-center justify-center shadow-xl hover:bg-[#F16521] active:scale-95 transition-all cursor-pointer"
+          className="fixed left-3.5 bottom-[72px] md:left-auto md:right-5 md:bottom-20 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#111827] text-white flex items-center justify-center shadow-xl hover:bg-[#F97316] active:scale-95 transition-all cursor-pointer"
           aria-label="Scroll back to top"
         >
           <ChevronUp className="w-5 h-5" />

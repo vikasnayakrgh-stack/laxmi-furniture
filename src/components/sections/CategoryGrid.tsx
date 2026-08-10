@@ -16,9 +16,9 @@ export function CategoryGrid() {
   );
 
   return (
-    <section className="py-13">
-      <div className="max-w-[1280px] mx-auto px-5">
-        <h2 className="font-head font-semibold text-xl md:text-2xl text-brown dark:text-accent text-center mb-6">
+    <section className="py-12 bg-white">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-5">
+        <h2 className="font-head font-extrabold text-2xl md:text-3xl text-[#111827] text-center mb-6">
           Shop All Things Home
         </h2>
 
@@ -28,7 +28,7 @@ export function CategoryGrid() {
           onChange={setActiveTab}
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-5 mt-6">
           {filteredCategories.map((cat) => (
             <Link
               key={cat.name}
@@ -36,7 +36,7 @@ export function CategoryGrid() {
               onClick={() => setPresetCategory(cat.name)}
               className="group text-center cursor-pointer"
             >
-              <div className="relative w-full aspect-square rounded-xl overflow-hidden shadow-xs mb-2.5 bg-cream/40">
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-xs mb-2.5 bg-[#FAF6F1] border border-[#E5E7EB]">
                 <Image
                   src={cat.img}
                   alt={cat.name}
@@ -45,7 +45,7 @@ export function CategoryGrid() {
                   className="object-cover group-hover:scale-108 transition-transform duration-500"
                 />
               </div>
-              <p className="font-semibold text-xs md:text-sm text-ink group-hover:text-accent transition-colors">
+              <p className="font-extrabold text-xs md:text-sm text-[#111827] group-hover:text-[#F97316] transition-colors">
                 {cat.name}
               </p>
             </Link>

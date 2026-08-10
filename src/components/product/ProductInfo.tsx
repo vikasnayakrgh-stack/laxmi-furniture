@@ -55,12 +55,12 @@ export function ProductInfo({ product }: ProductInfoProps) {
   return (
     <div className="space-y-4">
       {/* Title */}
-      <h1 className="font-head font-extrabold text-xl md:text-2xl text-[#1C1917] leading-snug">
+      <h1 className="font-head font-extrabold text-xl md:text-2xl text-[#111827] leading-snug">
         {product.name}
       </h1>
 
       {/* Ratings */}
-      <div className="flex items-center gap-2 text-xs text-[#6B6560]">
+      <div className="flex items-center gap-2 text-xs text-[#4B5563]">
         <span className="text-amber-500 font-bold tracking-wider">
           {getStarRatingString(product.rating)}
         </span>
@@ -71,56 +71,56 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
       {/* Pricing */}
       <div className="flex items-baseline gap-3">
-        <span className="text-2xl md:text-3xl font-black text-[#1C1917]">
+        <span className="text-2xl md:text-3xl font-black text-[#111827]">
           {formatPrice(product.price)}
         </span>
-        <span className="line-through text-base text-[#9B8E87] font-medium">{formatPrice(product.mrp)}</span>
+        <span className="line-through text-base text-[#6B7280] font-medium">{formatPrice(product.mrp)}</span>
         <span className="bg-[#16A34A] text-white text-xs font-black px-2.5 py-0.5 rounded-full">{discount}% OFF</span>
       </div>
 
       {/* Trust Badges Grid */}
-      <div className="grid grid-cols-3 gap-2 py-3 border-t border-b border-[#E9E3DC] my-2">
-        <div className="flex flex-col items-center text-center p-2 bg-[#FAF6F1] rounded-xl border border-[#E9E3DC]">
-          <Truck className="w-4 h-4 text-[#F16521] mb-1" />
-          <span className="text-[10px] font-extrabold text-[#1C1917]">Free Delivery</span>
+      <div className="grid grid-cols-3 gap-2 py-3 border-t border-b border-[#E5E7EB] my-2">
+        <div className="flex flex-col items-center text-center p-2 bg-[#F9FAFB] rounded-xl border border-[#E5E7EB]">
+          <Truck className="w-4 h-4 text-[#F97316] mb-1" />
+          <span className="text-[10px] font-extrabold text-[#111827]">Free Delivery</span>
         </div>
-        <div className="flex flex-col items-center text-center p-2 bg-[#FAF6F1] rounded-xl border border-[#E9E3DC]">
-          <Store className="w-4 h-4 text-[#F16521] mb-1" />
-          <span className="text-[10px] font-extrabold text-[#1C1917]">Raipur Store</span>
+        <div className="flex flex-col items-center text-center p-2 bg-[#F9FAFB] rounded-xl border border-[#E5E7EB]">
+          <Store className="w-4 h-4 text-[#F97316] mb-1" />
+          <span className="text-[10px] font-extrabold text-[#111827]">Raipur Store</span>
         </div>
-        <div className="flex flex-col items-center text-center p-2 bg-[#FAF6F1] rounded-xl border border-[#E9E3DC]">
-          <Award className="w-4 h-4 text-[#F16521] mb-1" />
-          <span className="text-[10px] font-extrabold text-[#1C1917]">10-Yr Warranty</span>
+        <div className="flex flex-col items-center text-center p-2 bg-[#F9FAFB] rounded-xl border border-[#E5E7EB]">
+          <Award className="w-4 h-4 text-[#F97316] mb-1" />
+          <span className="text-[10px] font-extrabold text-[#111827]">10-Yr Warranty</span>
         </div>
       </div>
 
       {/* Key Feature Bullet Points */}
-      <div className="space-y-1.5 text-xs text-[#1C1917]">
+      <div className="space-y-1.5 text-xs text-[#111827]">
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#F16521]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
           <span>Primary Material: <b>{product.mat}</b></span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#F16521]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
           <span>Customization: <b>Size & Wood Finish Available</b></span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#F16521]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F97316]" />
           <span>Warranty: <b>10-Year Frame Warranty</b></span>
         </div>
       </div>
 
       {/* Colour Swatches */}
-      <div className="border-t border-[#E9E3DC] pt-4 space-y-2">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-[#1C1917]">
+      <div className="border-t border-[#E5E7EB] pt-4 space-y-2">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-[#111827]">
           Wood & Fabric Finishes
         </h4>
         <Swatches />
       </div>
 
       {/* Delivery Checker */}
-      <div className="border-t border-[#E9E3DC] pt-4 space-y-2">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-[#1C1917]">
+      <div className="border-t border-[#E5E7EB] pt-4 space-y-2">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-[#111827]">
           Check Delivery Serviceability
         </h4>
         <PincodeChecker />
@@ -130,7 +130,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
       <div className="hidden sm:flex flex-row gap-3 pt-2">
         <button
           onClick={handleInquireModal}
-          className="flex-1 bg-[#F16521] hover:bg-[#D4541A] text-white font-extrabold text-sm py-3.5 px-5 rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+          className="flex-1 bg-[#F97316] hover:bg-[#EA580C] text-white font-extrabold text-sm py-3.5 px-5 rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
         >
           <PhoneCall className="w-4 h-4" />
           Request Best Price Quote
@@ -146,12 +146,12 @@ export function ProductInfo({ product }: ProductInfoProps) {
       </div>
 
       {/* Mobile Sticky Bottom Conversion Bar */}
-      <div className="sm:hidden fixed bottom-14 left-0 right-0 z-50 bg-white border-t border-[#E9E3DC] p-2.5 px-3 shadow-2xl flex items-center gap-2">
+      <div className="sm:hidden fixed bottom-14 left-0 right-0 z-50 bg-white border-t border-[#E5E7EB] p-2.5 px-3 shadow-2xl flex items-center gap-2">
         <a
           href="tel:18002674445"
-          className="flex-1 bg-[#FAF6F1] text-[#1C1917] font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 border border-[#E9E3DC] active:scale-95 transition-transform"
+          className="flex-1 bg-[#F9FAFB] text-[#111827] font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 border border-[#E5E7EB] active:scale-95 transition-transform"
         >
-          <PhoneCall className="w-3.5 h-3.5 text-[#F16521]" />
+          <PhoneCall className="w-3.5 h-3.5 text-[#F97316]" />
           Call Now
         </a>
         <button

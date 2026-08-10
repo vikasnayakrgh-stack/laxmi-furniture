@@ -27,27 +27,27 @@ export function DealsCarousel() {
   const format2 = (n: number) => n.toString().padStart(2, "0");
 
   return (
-    <section className="bg-gradient-to-b from-amber-50/50 via-white to-slate-50 dark:from-slate-900/60 dark:via-slate-950 dark:to-slate-950 py-14 border-y border-amber-100 dark:border-slate-800">
+    <section className="bg-gradient-to-b from-[#FFF7ED] via-white to-[#FAF6F1] py-12 md:py-14 border-y border-[#E5E7EB]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center shadow-md">
+            <div className="w-10 h-10 rounded-2xl bg-[#F97316] text-white flex items-center justify-center shadow-md">
               <Zap className="w-6 h-6 fill-amber-300 text-white" />
             </div>
             <div>
-              <h2 className="font-head font-black text-2xl sm:text-3xl text-slate-900 dark:text-slate-100 tracking-tight">
+              <h2 className="font-head font-black text-2xl sm:text-3xl text-[#111827] tracking-tight">
                 Lightning Flash Deals
               </h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-[#4B5563]">
                 Massive discounts on best-selling luxury furniture — Limited Stock!
               </p>
             </div>
           </div>
 
           {/* Countdown Pill */}
-          <div className="flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-2xl shadow-md border border-slate-800 text-xs font-bold">
+          <div className="flex items-center gap-2 bg-[#111827] text-white px-4 py-2 rounded-2xl shadow-md border border-[#111827] text-xs font-bold">
             <Clock className="w-4 h-4 text-amber-400 animate-pulse" />
-            <span className="text-slate-400">Ends In:</span>
+            <span className="text-slate-300">Ends In:</span>
             <div className="flex items-center gap-1 font-mono text-sm text-amber-400 font-black">
               <span>{format2(timeLeft.hours)}h</span>:
               <span>{format2(timeLeft.minutes)}m</span>:
@@ -64,7 +64,7 @@ export function DealsCarousel() {
           {/* Explore Freedom Deals Tile */}
           <Link
             href="/shop"
-            className="w-[200px] sm:w-[240px] rounded-2xl bg-gradient-to-br from-amber-600 via-orange-600 to-red-600 text-white flex flex-col items-start justify-between p-6 shrink-0 hover:-translate-y-1.5 transition-all shadow-xl group border border-orange-500/30"
+            className="w-[200px] sm:w-[240px] rounded-2xl bg-gradient-to-br from-[#F97316] via-orange-600 to-red-600 text-white flex flex-col items-start justify-between p-6 shrink-0 hover:-translate-y-1.5 transition-all shadow-xl group border border-orange-500/30"
           >
             <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center text-white">
               <Zap className="w-5 h-5 fill-white" />
@@ -82,7 +82,7 @@ export function DealsCarousel() {
               </p>
             </div>
 
-            <div className="flex items-center gap-2 font-bold text-xs bg-white text-slate-950 px-4 py-2 rounded-xl group-hover:bg-amber-300 transition-colors shadow-xs w-full justify-between mt-4">
+            <div className="flex items-center gap-2 font-bold text-xs bg-white text-[#111827] px-4 py-2 rounded-xl group-hover:bg-amber-300 transition-colors shadow-xs w-full justify-between mt-4">
               <span>View All Deals</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -92,4 +92,3 @@ export function DealsCarousel() {
     </section>
   );
 }
-

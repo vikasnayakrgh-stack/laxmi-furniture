@@ -13,22 +13,22 @@ export function RecentlyViewedSection() {
   }
 
   return (
-    <section className="py-6 bg-white dark:bg-[#18181B] border-b border-[#E9E3DC] dark:border-zinc-800 transition-colors">
+    <section className="py-8 bg-white border-b border-[#E5E7EB] transition-colors">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-5">
-        <div className="flex items-center justify-between gap-2 mb-3.5">
+        <div className="flex items-center justify-between gap-2 mb-4">
           <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-[#F16521]" />
-            <h2 className="font-head font-bold text-lg sm:text-xl text-[#1C1917] dark:text-zinc-100">
+            <Clock className="w-4 h-4 text-[#F97316]" />
+            <h2 className="font-head font-extrabold text-lg sm:text-xl text-[#111827]">
               Recently Viewed
             </h2>
-            <span className="text-xs bg-[#FFF4EE] dark:bg-amber-950/40 text-[#F16521] px-2 py-0.5 rounded-full font-bold">
+            <span className="text-xs bg-[#FFF7ED] text-[#F97316] border border-[#FFEDD5] px-2 py-0.5 rounded-full font-bold">
               {recentlyViewed.length}
             </span>
           </div>
 
           <button
             onClick={clearRecentlyViewed}
-            className="flex items-center gap-1 text-[11px] font-semibold text-[#8a837c] hover:text-rose-600 transition-colors cursor-pointer"
+            className="flex items-center gap-1 text-xs font-bold text-[#6B7280] hover:text-rose-600 transition-colors cursor-pointer"
             title="Clear history"
           >
             <Trash2 className="w-3.5 h-3.5" />
@@ -36,7 +36,7 @@ export function RecentlyViewedSection() {
           </button>
         </div>
 
-        {/* Horizontal Scrollable Carousel for Mobile */}
+        {/* Horizontal Scrollable Carousel */}
         <div className="flex gap-3 sm:gap-4 overflow-x-auto no-scrollbar pb-2">
           {recentlyViewed.map((product) => (
             <div key={product.id} className="w-[165px] sm:w-[220px] shrink-0">

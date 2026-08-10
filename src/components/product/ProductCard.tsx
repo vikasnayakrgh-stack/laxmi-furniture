@@ -58,7 +58,7 @@ export function ProductCard({ product, width, className }: ProductCardProps) {
   return (
     <article
       className={cn(
-        "group relative bg-white border border-[#E9E3DC] rounded-xl sm:rounded-2xl overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col cursor-pointer",
+        "group relative bg-white border border-[#E5E7EB] rounded-xl sm:rounded-2xl overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col cursor-pointer",
         width ? `w-[${width}px]` : "w-full",
         className
       )}
@@ -66,7 +66,7 @@ export function ProductCard({ product, width, className }: ProductCardProps) {
     >
       <Link href={`/product/${product.id}`} onClick={handleCardClick} className="flex flex-col h-full">
         {/* Product Image Container (4:5 Aspect Ratio) */}
-        <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#FAF6F1]">
+        <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#F9FAFB]">
           {/* Savings & Micro-copy Overlays */}
           <div className="absolute top-2 left-2 z-10 flex flex-col gap-1 items-start max-w-[85%]">
             {discount > 0 && (
@@ -75,12 +75,12 @@ export function ProductCard({ product, width, className }: ProductCardProps) {
               </span>
             )}
             {isTrendingInRaipur ? (
-              <span className="bg-[#F16521] text-white font-bold text-[8px] sm:text-[9.5px] uppercase px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">
+              <span className="bg-[#F97316] text-white font-bold text-[8px] sm:text-[9.5px] uppercase px-2 py-0.5 rounded-full shadow-2xs flex items-center gap-1">
                 <Sparkles className="w-2.5 h-2.5" />
                 <span>Trending in Raipur</span>
               </span>
             ) : (
-              <span className="bg-[#1C1917] text-white font-bold text-[8px] sm:text-[9.5px] uppercase px-2 py-0.5 rounded-full shadow-2xs">
+              <span className="bg-[#111827] text-white font-bold text-[8px] sm:text-[9.5px] uppercase px-2 py-0.5 rounded-full shadow-2xs">
                 Factory Direct
               </span>
             )}
@@ -99,8 +99,8 @@ export function ProductCard({ product, width, className }: ProductCardProps) {
           <button
             onClick={handleHeartClick}
             className={cn(
-              "absolute top-2 right-2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-95 cursor-pointer",
-              isLiked ? "text-rose-600 fill-rose-600" : "text-[#6B6560] hover:text-rose-500"
+              "absolute top-2 right-2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-95 cursor-pointer",
+              isLiked ? "text-rose-600 fill-rose-600" : "text-[#4B5563] hover:text-rose-500"
             )}
             aria-label="Toggle wishlist"
           >
@@ -113,19 +113,19 @@ export function ProductCard({ product, width, className }: ProductCardProps) {
         {/* Product Information */}
         <div className="p-3 sm:p-3.5 flex flex-col gap-1 flex-1">
           {/* Rating */}
-          <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-[#6B6560]">
+          <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-[#4B5563]">
             <div className="flex text-amber-500">
               <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
             </div>
-            <span className="font-extrabold text-[#1C1917]">
+            <span className="font-extrabold text-[#111827]">
               {product.rating ? product.rating.toFixed(1) : "4.8"}
             </span>
-            <span className="text-stone-400">({24 + (Number(product.id) % 80)})</span>
+            <span className="text-[#6B7280]">({24 + (Number(product.id) % 80)})</span>
           </div>
 
           {/* Title - Medium Weight, 2 lines */}
           <h3
-            className="text-xs sm:text-sm font-medium text-[#1C1917] group-hover:text-[#F16521] line-clamp-2 min-h-[32px] sm:min-h-[40px] leading-snug transition-colors"
+            className="text-xs sm:text-sm font-semibold text-[#111827] group-hover:text-[#F97316] line-clamp-2 min-h-[32px] sm:min-h-[40px] leading-snug transition-colors"
             title={product.name}
           >
             {product.name}
@@ -133,16 +133,16 @@ export function ProductCard({ product, width, className }: ProductCardProps) {
 
           {/* Price Block */}
           <div className="flex items-baseline gap-1.5 mt-auto pt-1 flex-wrap">
-            <span className="text-sm sm:text-base font-extrabold text-[#1C1917] tracking-tight">
+            <span className="text-sm sm:text-base font-black text-[#111827] tracking-tight">
               {formatPrice(product.price)}
             </span>
-            <span className="line-through text-[11px] sm:text-xs font-normal text-[#9B8E87]">
+            <span className="line-through text-[11px] sm:text-xs font-normal text-[#6B7280]">
               {formatPrice(product.mrp)}
             </span>
           </div>
 
           {/* Micro-copy Stock Indicator */}
-          <div className="text-[9.5px] font-semibold text-[#D97706] mt-0.5">
+          <div className="text-[9.5px] font-bold text-[#D97706] mt-0.5">
             ⚡ Direct Factory Price Quote
           </div>
 
@@ -150,7 +150,7 @@ export function ProductCard({ product, width, className }: ProductCardProps) {
           <div className="flex items-center gap-1.5 mt-2">
             <button
               onClick={handleInquireNow}
-              className="flex-1 bg-gradient-to-r from-[#F16521] to-[#D4541A] text-white font-extrabold text-[11px] sm:text-xs py-2 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-2xs hover:shadow-md active:scale-95 cursor-pointer group/btn"
+              className="flex-1 bg-[#F97316] hover:bg-[#EA580C] text-white font-extrabold text-[11px] sm:text-xs py-2 px-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-2xs hover:shadow-md active:scale-95 cursor-pointer group/btn"
             >
               <MessageSquare className="w-3 h-3 group-hover/btn:scale-110 transition-transform shrink-0" />
               <span className="truncate">View Quote</span>
