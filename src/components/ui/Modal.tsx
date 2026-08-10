@@ -44,7 +44,7 @@ export function Modal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 backdrop-blur-xs"
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs"
           />
 
           {/* Modal Card */}
@@ -54,16 +54,16 @@ export function Modal({
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             className={cn(
-              "relative z-10 w-full max-w-lg rounded-2xl bg-white dark:bg-[#1C1815] p-6 shadow-2xl border border-line",
+              "relative z-10 w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl border border-[#E5E7EB]",
               className
             )}
           >
             {title && (
-              <div className="flex items-center justify-between border-b border-line pb-3 mb-4">
-                <h3 className="font-head text-lg font-bold text-ink">{title}</h3>
+              <div className="flex items-center justify-between border-b border-[#E5E7EB] pb-3 mb-4">
+                <h3 className="font-head text-lg font-extrabold text-[#111827]">{title}</h3>
                 <button
                   onClick={onClose}
-                  className="rounded-full p-1 text-muted hover:bg-cream hover:text-ink transition-colors"
+                  className="rounded-full p-1 text-[#4B5563] hover:bg-[#F3F4F6] hover:text-[#111827] transition-colors cursor-pointer"
                   aria-label="Close modal"
                 >
                   <X className="w-5 h-5" />

@@ -25,7 +25,7 @@ export function PillTabs({
     <div
       className={cn(
         "flex flex-wrap justify-center gap-3 mb-7",
-        variant === "underline" && "gap-0 border-b border-line pb-1",
+        variant === "underline" && "gap-0 border-b border-[#E5E7EB] pb-1",
         className
       )}
     >
@@ -38,9 +38,9 @@ export function PillTabs({
               key={tab.key}
               onClick={() => onChange(tab.key)}
               className={cn(
-                "px-3 py-2 text-sm font-semibold transition-all border-b-2 -mb-[5px] mx-2 text-muted hover:text-accent cursor-pointer",
+                "px-3 py-2 text-sm font-semibold transition-all border-b-2 -mb-[5px] mx-2 text-[#4B5563] hover:text-[#F97316] cursor-pointer",
                 isActive
-                  ? "border-accent text-accent font-bold"
+                  ? "border-[#F97316] text-[#F97316] font-bold"
                   : "border-transparent"
               )}
             >
@@ -54,10 +54,10 @@ export function PillTabs({
             key={tab.key}
             onClick={() => onChange(tab.key)}
             className={cn(
-              "px-5 py-2 rounded-full border-1.5 font-semibold text-xs transition-all cursor-pointer",
+              "px-5 py-2 rounded-full border font-semibold text-xs transition-all cursor-pointer",
               isActive
-                ? "border-[#F16521] text-[#F16521] bg-[#FFF4EE] dark:bg-[#F16521]/20 font-black shadow-xs"
-                : "border-[#d8d2cb] text-[#1C1917] dark:text-zinc-200 bg-white dark:bg-zinc-800 font-extrabold hover:border-[#F16521] hover:text-[#F16521]"
+                ? "border-[#F97316] text-white bg-[#F97316] font-extrabold shadow-xs"
+                : "border-[#E5E7EB] text-[#111827] bg-[#F3F4F6] font-extrabold hover:border-[#F97316] hover:text-[#F97316]"
             )}
           >
             {tab.label}
