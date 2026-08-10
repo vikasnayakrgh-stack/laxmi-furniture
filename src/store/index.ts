@@ -3,4 +3,6 @@ export * from "./useWishlistStore";
 export * from "./useFilterStore";
 export * from "./useUIStore";
 export * from "./useInquiryStore";
+export * from "./useRecentlyViewedStore";
+
 

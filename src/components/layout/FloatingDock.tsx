@@ -1,16 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Bell, Headphones, MessageSquare, PhoneCall, ChevronUp } from "lucide-react";
-import { useUIStore } from "@/store";
+import { Send, PhoneCall, ChevronUp } from "lucide-react";
 
 export function FloatingDock() {
-  const { showToast } = useUIStore();
   const [showToTop, setShowToTop] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowToTop(window.scrollY > 500);
+      setShowToTop(window.scrollY > 400);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -20,49 +18,41 @@ export function FloatingDock() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleFloatingWhatsApp = () => {
+    const message = encodeURIComponent("Hi Laxmi Furniture, I want to inquire about custom solid wood furniture & current offers.");
+    window.open(`https://wa.me/919876543210?text=${message}`, "_blank");
+  };
+
   return (
     <>
-      {/* Right Floating Action Dock (Desktop) */}
-      <div className="hidden md:flex fixed right-3.5 top-1/2 -translate-y-1/2 z-40 flex-col gap-2.5">
+      {/* Floating WhatsApp Action Pill (Bottom-Right on Desktop/Tablet, Positioned above BottomNav on Mobile) */}
+      <div className="fixed right-3.5 bottom-[72px] md:bottom-6 z-40 flex flex-col items-end gap-2.5">
         <button
-          onClick={() => showToast("No new notifications")}
-          className="w-11 h-11 rounded-full bg-navy text-white flex items-center justify-center shadow-md hover:bg-accent hover:scale-108 transition-all cursor-pointer"
-          aria-label="Notifications"
+          onClick={handleFloatingWhatsApp}
+          className="flex items-center gap-2 bg-[#25D366] text-white px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-full shadow-xl hover:bg-[#20bd5a] hover:scale-105 active:scale-95 transition-all cursor-pointer border-2 border-white dark:border-zinc-900"
+          aria-label="Direct WhatsApp Inquiry"
         >
-          <Bell className="w-5 h-5" />
-        </button>
-        <button
-          onClick={() => showToast("Support: call 1800-267-4445")}
-          className="w-11 h-11 rounded-full bg-navy text-white flex items-center justify-center shadow-md hover:bg-accent hover:scale-108 transition-all cursor-pointer"
-          aria-label="Support Desk"
-        >
-          <Headphones className="w-5 h-5" />
-        </button>
-        <button
-          onClick={() => showToast("Chat with us — avg. reply in 2 min")}
-          className="w-11 h-11 rounded-full bg-navy text-white flex items-center justify-center shadow-md hover:bg-accent hover:scale-108 transition-all cursor-pointer"
-          aria-label="Live Chat"
-        >
-          <MessageSquare className="w-5 h-5" />
+          <Send className="w-4 h-4 fill-white text-white" />
+          <span className="text-xs sm:text-sm font-extrabold tracking-tight">WhatsApp Inquiry</span>
         </button>
       </div>
 
-      {/* Inquire On Phone Floating Pill */}
+      {/* Floating Call Showroom Pill (Bottom-Left on Desktop) */}
       <a
         href="tel:18002674445"
-        className="fixed right-4 bottom-20 md:bottom-5 z-40 flex items-center gap-2 bg-white dark:bg-[#1C1815] rounded-full shadow-xl border border-line px-4 py-2 text-xs font-bold text-accent hover:-translate-y-1 transition-all"
+        className="hidden md:flex fixed left-5 bottom-6 z-40 items-center gap-2 bg-white dark:bg-zinc-800 text-[#1C1917] dark:text-zinc-100 border border-[#E9E3DC] dark:border-zinc-700 rounded-full shadow-xl px-4 py-2 text-xs font-bold hover:text-[#F16521] transition-all"
       >
-        <span className="w-9 h-9 rounded-full bg-accent text-white flex items-center justify-center shrink-0">
-          <PhoneCall className="w-4 h-4" />
+        <span className="w-7 h-7 rounded-full bg-[#F16521] text-white flex items-center justify-center shrink-0">
+          <PhoneCall className="w-3.5 h-3.5" />
         </span>
-        Inquire on Phone
+        <span>Call: 1800-267-4445</span>
       </a>
 
       {/* Scroll to Top Floating Button */}
       {showToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed left-4 bottom-20 md:bottom-5 z-40 w-11 h-11 rounded-full bg-ink text-white flex items-center justify-center shadow-xl hover:bg-accent transition-all cursor-pointer"
+          className="fixed left-3.5 bottom-[72px] md:left-auto md:right-5 md:bottom-20 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1C1917] dark:bg-zinc-800 text-white flex items-center justify-center shadow-xl hover:bg-[#F16521] transition-all cursor-pointer opacity-90 hover:opacity-100"
           aria-label="Scroll back to top"
         >
           <ChevronUp className="w-5 h-5" />

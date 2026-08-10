@@ -1,68 +1,79 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, LayoutGrid, Search, ClipboardList, User } from "lucide-react";
-import { useUIStore, useInquiryStore } from "@/store";
+import { Home, LayoutGrid, Phone, MapPin, Send } from "lucide-react";
+import { useInquiryStore } from "@/store";
 
 export function BottomNav() {
   const pathname = usePathname();
-  const { showToast } = useUIStore();
   const { shortlist, openInquiryDrawer } = useInquiryStore();
+
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent(
+      "Hi Laxmi Furniture, I'm reaching out from your website. I want to inquire about custom furniture."
+    );
+    window.open(`https://wa.me/919876543210?text=${message}`, "_blank");
+  };
 
   return (
     <nav
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-[#1C1815] border-t border-line px-1 py-1.5 flex items-center justify-around shadow-lg"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-[#18181B] border-t border-[#E9E3DC] dark:border-zinc-800 px-1 py-1.5 flex items-center justify-around shadow-xl transition-colors"
       aria-label="Mobile Bottom Navigation"
     >
+      {/* 1. Home */}
       <Link
         href="/"
-        className={`flex flex-col items-center gap-0.5 text-[0.66rem] font-semibold transition-colors ${
-          pathname === "/" ? "text-accent" : "text-muted"
+        className={`flex flex-col items-center gap-0.5 text-[0.66rem] font-bold transition-colors ${
+          pathname === "/" ? "text-[#F16521]" : "text-[#6B6560] dark:text-zinc-400"
         }`}
       >
         <Home className="w-5 h-5" />
         Home
       </Link>
 
+      {/* 2. Categories */}
       <Link
         href="/shop"
-        className={`flex flex-col items-center gap-0.5 text-[0.66rem] font-semibold transition-colors ${
-          pathname === "/shop" ? "text-accent" : "text-muted"
+        className={`flex flex-col items-center gap-0.5 text-[0.66rem] font-bold transition-colors ${
+          pathname === "/shop" ? "text-[#F16521]" : "text-[#6B6560] dark:text-zinc-400"
         }`}
       >
         <LayoutGrid className="w-5 h-5" />
         Categories
       </Link>
 
+      {/* 3. WhatsApp (Highlighted Primary CTA) */}
+      <button
+        onClick={handleWhatsApp}
+        className="flex flex-col items-center gap-0.5 text-[0.66rem] font-black text-[#25D366] active:scale-95 transition-transform cursor-pointer"
+      >
+        <div className="w-9 h-9 rounded-full bg-[#25D366] text-white flex items-center justify-center -mt-3 shadow-md border-2 border-white dark:border-zinc-900">
+          <Send className="w-4 h-4 ml-0.5" />
+        </div>
+        WhatsApp
+      </button>
+
+      {/* 4. Call Now */}
+      <a
+        href="tel:18002674445"
+        className="flex flex-col items-center gap-0.5 text-[0.66rem] font-bold text-[#6B6560] dark:text-zinc-400 active:text-[#F16521] transition-colors"
+      >
+        <Phone className="w-5 h-5" />
+        Call
+      </a>
+
+      {/* 5. Visit Showroom */}
       <Link
-        href="/shop"
-        className="flex flex-col items-center gap-0.5 text-[0.66rem] font-semibold text-muted transition-colors"
+        href="/about"
+        className={`flex flex-col items-center gap-0.5 text-[0.66rem] font-bold transition-colors ${
+          pathname === "/about" ? "text-[#F16521]" : "text-[#6B6560] dark:text-zinc-400"
+        }`}
       >
-        <Search className="w-5 h-5" />
-        Search
+        <MapPin className="w-5 h-5" />
+        Showroom
       </Link>
-
-      <button
-        onClick={openInquiryDrawer}
-        className="relative flex flex-col items-center gap-0.5 text-[0.66rem] font-semibold text-muted transition-colors cursor-pointer"
-      >
-        <ClipboardList className="w-5 h-5" />
-        Inquiry
-        {shortlist.length > 0 && (
-          <span className="absolute top-0 right-2 bg-accent text-white text-[0.6rem] font-bold min-w-[16px] h-[16px] rounded-full flex items-center justify-center">
-            {shortlist.length}
-          </span>
-        )}
-      </button>
-
-      <button
-        onClick={() => showToast("Sign in coming soon")}
-        className="flex flex-col items-center gap-0.5 text-[0.66rem] font-semibold text-muted transition-colors cursor-pointer"
-      >
-        <User className="w-5 h-5" />
-        Account
-      </button>
     </nav>
   );
 }
