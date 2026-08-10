@@ -23,8 +23,8 @@
 }
 
 /* ============================================================
-   1. PRODUCTION DESIGN SYSTEM — NESTORA
-   (UI/UX Pro Max v2.13 · WCAG 2.1 AA · Luxury E-Commerce)
+   1. PRODUCTION DESIGN SYSTEM — LAXMI FURNITURE LUXURY
+   (Ex-Apple / Ex-Amazon CRO Standards · WCAG 2.1 AA+)
    ============================================================ */
 :root {
   /* === BRAND CORE === */
@@ -48,6 +48,7 @@
 
   /* === SEMANTIC COLORS === */
   --discount:        #16A34A;
+  --whatsapp:        #25D366;
   --warning:         #D97706;
   --error:           #DC2626;
 
@@ -61,27 +62,29 @@
   --line:            #E9E3DC;
   --line-strong:     #D6D3D1;
 
-  /* === SHADOWS === */
-  --shadow-xs:       0 1px 3px rgba(28,25,23,.06);
-  --shadow-sm:       0 2px 10px rgba(28,25,23,.07);
-  --shadow:          0 6px 24px rgba(28,25,23,.08);
-  --shadow-lg:       0 16px 48px rgba(28,25,23,.12);
-  --shadow-cta:      0 4px 14px rgba(241,101,33,.30);
+  /* === LUXURY AMBIENT SHADOWS === */
+  --shadow-xs:       0 1px 3px rgba(28,25,23,.05);
+  --shadow-sm:       0 2px 10px rgba(28,25,23,.06);
+  --shadow-md:       0 8px 24px rgba(28,25,23,.08);
+  --shadow-lg:       0 16px 40px rgba(28,25,23,.12);
+  --shadow-xl:       0 24px 60px rgba(28,25,23,.16);
+  --shadow-cta:      0 8px 24px rgba(241,101,33,.35);
+  --shadow-wa:       0 8px 24px rgba(37,211,102,.35);
 
   /* === TYPOGRAPHY === */
   --font-head:       'Playfair Display', Georgia, serif;
   --font-body:       'Inter', system-ui, sans-serif;
 
   /* === TRANSITIONS === */
-  --tr:              0.25s ease;
-  --tr-slow:         0.4s cubic-bezier(0.4,0,0.2,1);
+  --tr:              0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --tr-slow:         0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* === RADIUS === */
-  --radius:          12px;
-  --radius-lg:       20px;
+  --radius:          14px;
+  --radius-lg:       22px;
 }
 
-/* Force light theme always */
+/* Force clean light theme */
 .dark, [data-theme="dark"] {
   --bg:              #FFFFFF;
   --surface:         #FAFAF9;
@@ -100,8 +103,6 @@
   --green-bar:       #0B5B4C;
   --brown:           #7C5230;
   --navy:            #1E2A4A;
-  --shadow:          0 6px 24px rgba(28,25,23,.08);
-  --shadow-sm:       0 2px 10px rgba(28,25,23,.07);
 }
 
 /* ============================================================
@@ -127,14 +128,34 @@ body {
 :focus-visible {
   outline: 2.5px solid var(--accent-ring);
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: 8px;
+}
+
+/* Active touch physics for buttons & cards */
+button:active, a:active, .btn-active:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
 }
 
 /* ============================================================
-   3. CUSTOM UTILITY CLASSES — NESTORA PRODUCTION
+   3. CUSTOM UTILITY CLASSES & KEYFRAMES
    ============================================================ */
 
-/* Strikethrough — WCAG fix: #9B8E87 = 3.1:1 contrast ratio (pass) */
+/* Pulse glow for WhatsApp */
+@keyframes pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+}
+
+.pulse-wa {
+  animation: pulse-green 2.5s infinite;
+}
+
+/* Strikethrough */
 .strike {
   color: #9B8E87;
   text-decoration: line-through;
@@ -146,52 +167,34 @@ body {
   font-weight: 700;
 }
 
-.chip-code {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border: 1.5px dashed var(--accent);
-  color: var(--accent);
-  font-weight: 700;
-  padding: 5px 12px;
-  border-radius: 8px;
-  background: var(--accent-light);
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
-}
-
-.qa-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.btn-primary {
   background: linear-gradient(135deg, #F16521, #D4541A);
-  color: #ffffff !important;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 20px;
-  width: fit-content;
+  color: white;
+  font-weight: 800;
+  border-radius: 14px;
   box-shadow: var(--shadow-cta);
+  transition: transform var(--tr), box-shadow var(--tr);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(241,101,33,.45);
 }
 
-.arrow-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  border-bottom: 2px solid currentColor;
-  width: fit-content;
-  padding-bottom: 2px;
-  transition: var(--tr);
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+  font-weight: 800;
+  border-radius: 14px;
+  box-shadow: var(--shadow-wa);
+  transition: transform var(--tr), box-shadow var(--tr);
 }
-.arrow-link:hover {
-  color: var(--accent) !important;
-  border-color: var(--accent) !important;
+.btn-whatsapp:hover {
+  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37,211,102,.45);
 }
 
-/* ============================================================
-   4. HORIZONTAL SCROLL — PRODUCTION POLISH
-   ============================================================ */
+/* Horizontal scroll */
 .hscroll {
   display: flex;
   gap: 18px;
@@ -207,10 +210,6 @@ body {
   height: 4px;
 }
 
-.hscroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 .hscroll::-webkit-scrollbar-thumb {
   background: #D6D3D1;
   border-radius: 2px;
@@ -221,31 +220,6 @@ body {
   flex: 0 0 auto;
 }
 
-/* ============================================================
-   5. SECTION DEFAULTS
-   ============================================================ */
-.section-title {
-  font-family: var(--font-head);
-  font-weight: 700;
-  color: var(--brown);
-  text-align: center;
-}
-
-.btn-primary {
-  box-shadow: var(--shadow-cta);
-  transition: transform var(--tr), box-shadow var(--tr);
-}
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(241,101,33,.40);
-}
-.btn-primary:active {
-  transform: translateY(0);
-}
-
-/* ============================================================
-   6. REDUCED MOTION ACCESSIBILITY
-   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

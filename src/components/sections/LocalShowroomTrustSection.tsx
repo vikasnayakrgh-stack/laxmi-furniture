@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Star, MapPin, Phone, Send, ShieldCheck, Truck, Clock, Award } from "lucide-react";
+import { Star, MapPin, Phone, Send, ShieldCheck, Truck, Clock, Award, Users, CheckCircle2 } from "lucide-react";
 
 export function LocalShowroomTrustSection() {
   const handleDirections = () => {
@@ -11,104 +11,131 @@ export function LocalShowroomTrustSection() {
 
   const handleShowroomWhatsApp = () => {
     const message = encodeURIComponent(
-      "Hi Laxmi Furniture, I would like to schedule a visit to your showroom in Raipur."
+      "Hi Laxmi Furniture, I would like to schedule a showroom visit to see your custom teak furniture."
     );
     window.open(`https://wa.me/919876543210?text=${message}`, "_blank");
   };
 
   return (
-    <section className="py-8 bg-white dark:bg-[#18181B] border-t border-b border-[#E9E3DC] dark:border-zinc-800 transition-colors">
+    <section className="py-12 md:py-16 bg-[#FAF6F1] border-t border-b border-[#E9E3DC] transition-colors">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-5">
         
-        {/* Local Showroom Trust Box */}
-        <div className="bg-gradient-to-br from-[#FAF6F1] via-[#FFF8F3] to-[#FFF4EE] dark:from-zinc-900 dark:to-zinc-950 border border-[#FFDEC9] dark:border-zinc-800 rounded-2xl p-5 sm:p-8 shadow-xs">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-            
-            {/* Left Column: Showroom Text & Ratings */}
-            <div className="flex flex-col gap-3">
-              {/* Google Reviews Badge */}
-              <div className="inline-flex items-center gap-2 bg-white dark:bg-zinc-800 border border-[#E9E3DC] dark:border-zinc-700 px-3 py-1.5 rounded-full shadow-2xs w-fit">
-                <span className="font-extrabold text-xs text-[#1C1917] dark:text-zinc-100 flex items-center gap-1">
-                  Google <span className="text-amber-500 font-black">4.9 ★</span>
-                </span>
-                <span className="text-[11px] text-[#6B6560] dark:text-zinc-400 border-l border-stone-200 dark:border-zinc-700 pl-2">
-                  (1,240+ Verified Reviews)
-                </span>
-              </div>
-
-              <h2 className="font-head font-extrabold text-2xl sm:text-3xl text-[#1C1917] dark:text-zinc-100 tracking-tight leading-tight">
-                Visit Our Flagship Furniture Showroom
-              </h2>
-
-              <p className="text-xs sm:text-sm text-[#6B6560] dark:text-zinc-300 leading-relaxed">
-                Experience solid teak wood furniture, test ergonomic comfort, and choose custom fabric finishes in person at our physical showroom.
-              </p>
-
-              {/* Showroom Features */}
-              <div className="grid grid-cols-2 gap-3 my-1">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#1C1917] dark:text-zinc-200">
-                  <ShieldCheck className="w-4 h-4 text-[#F16521] shrink-0" />
-                  <span>10-Year Frame Warranty</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#1C1917] dark:text-zinc-200">
-                  <Truck className="w-4 h-4 text-[#F16521] shrink-0" />
-                  <span>Free Home Delivery</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#1C1917] dark:text-zinc-200">
-                  <Award className="w-4 h-4 text-[#F16521] shrink-0" />
-                  <span>Factory Direct Price</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#1C1917] dark:text-zinc-200">
-                  <Clock className="w-4 h-4 text-[#F16521] shrink-0" />
-                  <span>Open 7 Days (10 AM–8 PM)</span>
-                </div>
-              </div>
-
-              {/* Showroom Address */}
-              <div className="flex items-start gap-2 bg-white/80 dark:bg-zinc-800/80 p-3 rounded-xl border border-[#E9E3DC] dark:border-zinc-700 text-xs">
-                <MapPin className="w-4 h-4 text-[#F16521] shrink-0 mt-0.5" />
-                <div>
-                  <strong className="block text-[#1C1917] dark:text-zinc-100 font-bold">Laxmi Furniture Store</strong>
-                  <span className="text-[#6B6560] dark:text-zinc-400">GE Road, Near City Center, Raipur, Chhattisgarh — 492001</span>
-                </div>
-              </div>
-
-              {/* Showroom Actions */}
-              <div className="flex items-center gap-2.5 mt-2 flex-wrap">
-                <button
-                  onClick={handleDirections}
-                  className="bg-[#F16521] text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs hover:bg-[#D4541A] transition-colors flex items-center gap-2 cursor-pointer"
-                >
-                  <MapPin className="w-4 h-4" />
-                  <span>Get Map Directions</span>
-                </button>
-
-                <button
-                  onClick={handleShowroomWhatsApp}
-                  className="bg-[#25D366] text-white font-extrabold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-xs hover:bg-[#20bd5a] transition-colors flex items-center gap-2 cursor-pointer"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>Book Store Visit</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Right Column: Showroom Photo Showcase */}
-            <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-stone-200 shadow-md">
-              <Image
-                src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80"
-                alt="Laxmi Furniture physical showroom"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute bottom-3 left-3 bg-black/75 backdrop-blur-xs text-white text-[11px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-                Live Showroom Open Today
-              </div>
-            </div>
-
+        {/* Header Title with Legacy Badge */}
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 space-y-2">
+          <div className="inline-flex items-center gap-1.5 bg-[#FFF4EE] text-[#F16521] border border-[#FFDEC9] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <Award className="w-4 h-4" />
+            <span>28+ Years of Craftsmanship Legacy</span>
           </div>
+          <h2 className="font-head font-black text-2xl sm:text-4xl text-[#1C1917] tracking-tight">
+            5,000+ Happy Homes in Raipur & CG
+          </h2>
+          <p className="text-xs sm:text-sm text-[#6B6560]">
+            Experience solid teak wood furniture, test ergonomic comfort, and choose custom fabric finishes in person.
+          </p>
+        </div>
+
+        {/* Local Showroom Trust Grid */}
+        <div className="bg-white border border-[#E9E3DC] rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-lg grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          
+          {/* Left Column: Showroom Text & Ratings */}
+          <div className="flex flex-col gap-4">
+            
+            {/* Google Reviews Box */}
+            <div className="flex items-center gap-3 bg-[#FAF6F1] border border-[#E9E3DC] p-3 rounded-2xl w-fit">
+              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center font-extrabold text-[#F16521] text-base shadow-xs">
+                4.9★
+              </div>
+              <div>
+                <div className="flex text-amber-500 gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                  ))}
+                </div>
+                <span className="text-xs font-bold text-[#1C1917]">
+                  Google Verified Rating <span className="text-[#6B6560] font-normal">(1,240+ Local Reviews)</span>
+                </span>
+              </div>
+            </div>
+
+            <h3 className="font-head font-extrabold text-xl sm:text-2xl text-[#1C1917] leading-tight">
+              Visit Our Raipur Showroom
+            </h3>
+
+            <p className="text-xs sm:text-sm text-[#6B6560] leading-relaxed">
+              Touch real wood finishes, inspect frame durability, and consult directly with our furniture designers.
+            </p>
+
+            {/* Showroom Benefits Grid */}
+            <div className="grid grid-cols-2 gap-3 py-1">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#1C1917]">
+                <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0" />
+                <span>10-Year Frame Warranty</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-bold text-[#1C1917]">
+                <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0" />
+                <span>Free Home Delivery</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-bold text-[#1C1917]">
+                <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0" />
+                <span>Factory Direct Price</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-bold text-[#1C1917]">
+                <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0" />
+                <span>Custom Size & Wood</span>
+              </div>
+            </div>
+
+            {/* Showroom Address Box */}
+            <div className="flex items-start gap-3 bg-[#FAF6F1] p-3.5 rounded-2xl border border-[#E9E3DC] text-xs">
+              <MapPin className="w-5 h-5 text-[#F16521] shrink-0 mt-0.5" />
+              <div>
+                <strong className="block text-[#1C1917] font-bold text-sm">Laxmi Furniture Flagship Store</strong>
+                <span className="text-[#6B6560]">GE Road, Near City Center Mall, Raipur, Chhattisgarh — 492001</span>
+                <div className="text-[11px] font-semibold text-[#16A34A] mt-1">Open 7 Days • 10:00 AM – 8:30 PM</div>
+              </div>
+            </div>
+
+            {/* Showroom Action Buttons */}
+            <div className="flex items-center gap-3 pt-1 flex-wrap">
+              <button
+                onClick={handleDirections}
+                className="bg-[#1C1917] text-white font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md hover:bg-[#F16521] transition-all flex items-center gap-2 active:scale-95 cursor-pointer"
+              >
+                <MapPin className="w-4 h-4" />
+                <span>Get Map Directions</span>
+              </button>
+
+              <button
+                onClick={handleShowroomWhatsApp}
+                className="bg-[#25D366] text-white font-extrabold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md hover:bg-[#20bd5a] transition-all flex items-center gap-2 active:scale-95 cursor-pointer pulse-wa"
+              >
+                <Send className="w-4 h-4 fill-white text-white" />
+                <span>Book Store Visit</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column: Real Showroom Photos */}
+          <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-200 shadow-md group">
+            <Image
+              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80"
+              alt="Laxmi Furniture physical showroom in Raipur"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 text-white flex items-center justify-between">
+              <span className="text-xs font-extrabold tracking-wide flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse" />
+                Live Showroom Open Today
+              </span>
+              <span className="text-[11px] bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md font-semibold">
+                Raipur, CG
+              </span>
+            </div>
+          </div>
+
         </div>
 
       </div>

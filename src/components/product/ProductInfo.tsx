@@ -55,12 +55,12 @@ export function ProductInfo({ product }: ProductInfoProps) {
   return (
     <div className="space-y-4">
       {/* Title */}
-      <h1 className="font-head font-extrabold text-xl md:text-2xl text-[#1C1917] dark:text-zinc-100 leading-snug">
+      <h1 className="font-head font-extrabold text-xl md:text-2xl text-[#1C1917] leading-snug">
         {product.name}
       </h1>
 
       {/* Ratings */}
-      <div className="flex items-center gap-2 text-xs text-[#6B6560] dark:text-zinc-400">
+      <div className="flex items-center gap-2 text-xs text-[#6B6560]">
         <span className="text-amber-500 font-bold tracking-wider">
           {getStarRatingString(product.rating)}
         </span>
@@ -71,31 +71,31 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
       {/* Pricing */}
       <div className="flex items-baseline gap-3">
-        <span className="text-2xl md:text-3xl font-black text-[#1C1917] dark:text-white">
+        <span className="text-2xl md:text-3xl font-black text-[#1C1917]">
           {formatPrice(product.price)}
         </span>
-        <span className="line-through text-base text-[#9b948d] font-medium">{formatPrice(product.mrp)}</span>
-        <span className="bg-[#1E8E3E] text-white text-xs font-black px-2 py-0.5 rounded">{discount}% OFF</span>
+        <span className="line-through text-base text-[#9B8E87] font-medium">{formatPrice(product.mrp)}</span>
+        <span className="bg-[#16A34A] text-white text-xs font-black px-2.5 py-0.5 rounded-full">{discount}% OFF</span>
       </div>
 
-      {/* Trust Callout Badges */}
-      <div className="grid grid-cols-3 gap-2 py-2 border-t border-b border-[#E9E3DC] dark:border-zinc-800 my-2">
-        <div className="flex flex-col items-center text-center p-2 bg-[#FAF6F1] dark:bg-zinc-800 rounded-lg">
+      {/* Trust Badges Grid */}
+      <div className="grid grid-cols-3 gap-2 py-3 border-t border-b border-[#E9E3DC] my-2">
+        <div className="flex flex-col items-center text-center p-2 bg-[#FAF6F1] rounded-xl border border-[#E9E3DC]">
           <Truck className="w-4 h-4 text-[#F16521] mb-1" />
-          <span className="text-[10px] font-extrabold text-[#1C1917] dark:text-zinc-200">Free Delivery</span>
+          <span className="text-[10px] font-extrabold text-[#1C1917]">Free Delivery</span>
         </div>
-        <div className="flex flex-col items-center text-center p-2 bg-[#FAF6F1] dark:bg-zinc-800 rounded-lg">
+        <div className="flex flex-col items-center text-center p-2 bg-[#FAF6F1] rounded-xl border border-[#E9E3DC]">
           <Store className="w-4 h-4 text-[#F16521] mb-1" />
-          <span className="text-[10px] font-extrabold text-[#1C1917] dark:text-zinc-200">Local Store</span>
+          <span className="text-[10px] font-extrabold text-[#1C1917]">Raipur Store</span>
         </div>
-        <div className="flex flex-col items-center text-center p-2 bg-[#FAF6F1] dark:bg-zinc-800 rounded-lg">
+        <div className="flex flex-col items-center text-center p-2 bg-[#FAF6F1] rounded-xl border border-[#E9E3DC]">
           <Award className="w-4 h-4 text-[#F16521] mb-1" />
-          <span className="text-[10px] font-extrabold text-[#1C1917] dark:text-zinc-200">Quality Assured</span>
+          <span className="text-[10px] font-extrabold text-[#1C1917]">10-Yr Warranty</span>
         </div>
       </div>
 
       {/* Key Feature Bullet Points */}
-      <div className="space-y-1.5 text-xs text-[#1C1917] dark:text-zinc-300">
+      <div className="space-y-1.5 text-xs text-[#1C1917]">
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#F16521]" />
           <span>Primary Material: <b>{product.mat}</b></span>
@@ -111,26 +111,26 @@ export function ProductInfo({ product }: ProductInfoProps) {
       </div>
 
       {/* Colour Swatches */}
-      <div className="border-t border-[#E9E3DC] dark:border-zinc-800 pt-4 space-y-2">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-[#1C1917] dark:text-zinc-200">
+      <div className="border-t border-[#E9E3DC] pt-4 space-y-2">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-[#1C1917]">
           Wood & Fabric Finishes
         </h4>
         <Swatches />
       </div>
 
       {/* Delivery Checker */}
-      <div className="border-t border-[#E9E3DC] dark:border-zinc-800 pt-4 space-y-2">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-[#1C1917] dark:text-zinc-200">
+      <div className="border-t border-[#E9E3DC] pt-4 space-y-2">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-[#1C1917]">
           Check Delivery Serviceability
         </h4>
         <PincodeChecker />
       </div>
 
-      {/* Desktop Inline Action Buttons */}
+      {/* Desktop Action Buttons */}
       <div className="hidden sm:flex flex-row gap-3 pt-2">
         <button
           onClick={handleInquireModal}
-          className="flex-1 bg-[#F16521] hover:bg-[#D95316] text-white font-extrabold text-sm py-3.5 px-5 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+          className="flex-1 bg-[#F16521] hover:bg-[#D4541A] text-white font-extrabold text-sm py-3.5 px-5 rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
         >
           <PhoneCall className="w-4 h-4" />
           Request Best Price Quote
@@ -138,27 +138,27 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
         <button
           onClick={handleWhatsAppInquiry}
-          className="flex-1 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-extrabold text-sm py-3.5 px-5 rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+          className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-sm py-3.5 px-5 rounded-xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer pulse-wa"
         >
-          <Send className="w-4 h-4" />
+          <Send className="w-4 h-4 fill-white text-white" />
           Inquire on WhatsApp
         </button>
       </div>
 
       {/* Mobile Sticky Bottom Conversion Bar */}
-      <div className="sm:hidden fixed bottom-14 left-0 right-0 z-50 bg-white dark:bg-[#18181B] border-t border-[#E9E3DC] dark:border-zinc-800 p-2.5 px-3 shadow-2xl flex items-center gap-2">
+      <div className="sm:hidden fixed bottom-14 left-0 right-0 z-50 bg-white border-t border-[#E9E3DC] p-2.5 px-3 shadow-2xl flex items-center gap-2">
         <a
           href="tel:18002674445"
-          className="flex-1 bg-stone-100 dark:bg-zinc-800 text-[#1C1917] dark:text-zinc-100 font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 border border-[#E9E3DC] dark:border-zinc-700"
+          className="flex-1 bg-[#FAF6F1] text-[#1C1917] font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 border border-[#E9E3DC] active:scale-95 transition-transform"
         >
           <PhoneCall className="w-3.5 h-3.5 text-[#F16521]" />
           Call Now
         </a>
         <button
           onClick={handleWhatsAppInquiry}
-          className="flex-1 bg-[#25D366] text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 shadow-md active:scale-95 transition-transform"
+          className="flex-1 bg-[#25D366] text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 shadow-md active:scale-95 transition-transform pulse-wa"
         >
-          <Send className="w-3.5 h-3.5" />
+          <Send className="w-3.5 h-3.5 fill-white text-white" />
           WhatsApp Now
         </button>
       </div>
