@@ -39,9 +39,9 @@ export function Swatches({
           onClick={() => handleSelect(option.name)}
           style={{ backgroundColor: option.colorHex }}
           className={cn(
-            "w-8.5 h-8.5 rounded-full border-2 border-white dark:border-ink shadow-xs transition-all cursor-pointer",
+            "w-8.5 h-8.5 rounded-full border-2 border-white shadow-xs transition-all cursor-pointer",
             selected === option.name
-              ? "ring-2 ring-accent scale-110"
+              ? "ring-2 ring-[#F97316] scale-110"
               : "opacity-85 hover:opacity-100"
           )}
           title={option.name}

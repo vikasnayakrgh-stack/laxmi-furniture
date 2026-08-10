@@ -21,7 +21,7 @@ export function RelatedProducts({ products, currentId }: RelatedProductsProps) {
 
   return (
     <div className="pb-14 pt-8">
-      <h2 className="font-head font-semibold text-xl md:text-2xl text-brown dark:text-accent text-center mb-6">
+      <h2 className="font-head font-extrabold text-xl md:text-2xl text-[#111827] text-center mb-6">
         You May Also Like
       </h2>
       <div className="hscroll">

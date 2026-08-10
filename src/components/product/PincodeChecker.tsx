@@ -34,11 +34,11 @@ export function PincodeChecker() {
           placeholder="Enter pincode (e.g. 492001)"
           value={pincode}
           onChange={(e) => setPincode(e.target.value)}
-          className="flex-1 border-1.5 border-line rounded-xl px-3.5 py-2.5 text-sm bg-white dark:bg-cream/10 text-ink outline-none focus:border-accent"
+          className="flex-1 border border-[#E5E7EB] rounded-xl px-3.5 py-2.5 text-sm bg-white text-[#111827] outline-none focus:border-[#F97316]"
         />
         <Button
           onClick={handleCheck}
-          className="bg-ink text-white hover:bg-accent rounded-xl px-5 text-sm font-bold"
+          className="bg-[#111827] text-white hover:bg-[#F97316] rounded-xl px-5 text-sm font-bold cursor-pointer"
         >
           Check
         </Button>
@@ -47,7 +47,7 @@ export function PincodeChecker() {
       {message && (
         <p
           className={`text-xs font-semibold ${
-            message.ok ? "text-discount" : "text-red-600"
+            message.ok ? "text-[#16A34A]" : "text-rose-600"
           }`}
         >
           {message.text}

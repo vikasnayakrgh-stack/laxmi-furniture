@@ -53,7 +53,7 @@ export default function ShopPage() {
   });
 
   return (
-    <div className="max-w-[1280px] mx-auto px-4 sm:px-5 py-6 sm:py-10">
+    <div className="max-w-[1280px] mx-auto px-4 sm:px-5 py-6 sm:py-10 bg-white">
       <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] gap-6 sm:gap-8">
         <FilterSidebar />
 
@@ -61,10 +61,10 @@ export default function ShopPage() {
           {/* Shop Header & Sort Selector */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div>
-              <h2 className="font-head font-extrabold text-xl md:text-2xl text-[#1C1917] dark:text-zinc-100">
+              <h2 className="font-head font-extrabold text-xl md:text-2xl text-[#111827]">
                 {searchQuery ? `Results for "${searchQuery}"` : "Shop All Furniture"}
               </h2>
-              <span className="text-xs font-medium text-[#6B6560] dark:text-zinc-400">
+              <span className="text-xs font-semibold text-[#4B5563]">
                 {sortedProducts.length} products available
               </span>
             </div>
@@ -72,7 +72,7 @@ export default function ShopPage() {
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value as SortOption)}
-              className="border border-[#E9E3DC] dark:border-zinc-700 rounded-xl px-3 py-2 text-xs font-bold bg-white dark:bg-zinc-800 text-[#1C1917] dark:text-zinc-100 outline-none cursor-pointer shadow-2xs"
+              className="border border-[#E5E7EB] rounded-xl px-3.5 py-2 text-xs font-bold bg-white text-[#111827] outline-none cursor-pointer shadow-2xs hover:border-[#F97316] transition-colors"
               aria-label="Sort products"
             >
               <option value="pop">Sort: Popularity</option>
@@ -91,8 +91,8 @@ export default function ShopPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 space-y-2 text-[#6B6560] dark:text-zinc-400 bg-stone-50 dark:bg-zinc-900 rounded-2xl border border-[#E9E3DC] dark:border-zinc-800">
-              <h3 className="font-head font-bold text-lg text-[#1C1917] dark:text-zinc-100">
+            <div className="text-center py-16 space-y-2 text-[#4B5563] bg-[#F9FAFB] rounded-2xl border border-[#E5E7EB]">
+              <h3 className="font-head font-bold text-lg text-[#111827]">
                 No products match your filters
               </h3>
               <p className="text-xs">Try clearing a filter or two.</p>
