@@ -9,16 +9,16 @@ export function CategoryNavigation() {
 
   return (
     <nav
-      className="hidden md:block border-b border-[#E9E3DC] dark:border-zinc-800 bg-white dark:bg-[#18181B] relative z-30 transition-colors"
+      className="block border-b border-[#E9E3DC] dark:border-zinc-800 bg-[#FAF6F1] md:bg-white dark:bg-[#18181B] relative z-30 transition-colors shadow-2xs overflow-x-auto no-scrollbar"
       aria-label="Category Menu Navigation"
     >
-      <div className="max-w-[1280px] mx-auto px-5 flex justify-center gap-1">
+      <div className="max-w-[1280px] mx-auto px-3 sm:px-5 flex items-center justify-start md:justify-center gap-1 overflow-x-auto no-scrollbar py-0.5">
         {NAV_MENU.map((menuItem) => (
-          <div key={menuItem.l} className="group relative">
+          <div key={menuItem.l} className="group relative shrink-0">
             <Link
               href="/shop"
               onClick={() => setPresetCategory(menuItem.l)}
-              className="block px-4 py-3.5 font-extrabold text-sm text-[#1C1917] dark:text-zinc-100 group-hover:text-[#F16521] dark:group-hover:text-[#F16521] transition-colors whitespace-nowrap"
+              className="block px-3.5 sm:px-4 py-2.5 sm:py-3 font-extrabold text-xs sm:text-sm text-[#1C1917] dark:text-zinc-100 group-hover:text-[#F16521] dark:group-hover:text-[#F16521] hover:bg-[#FFF4EE] dark:hover:bg-zinc-800 rounded-lg transition-colors whitespace-nowrap"
             >
               {menuItem.l}
             </Link>

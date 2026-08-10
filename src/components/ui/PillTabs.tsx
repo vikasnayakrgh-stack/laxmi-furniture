@@ -56,8 +56,8 @@ export function PillTabs({
             className={cn(
               "px-5 py-2 rounded-full border-1.5 font-semibold text-xs transition-all cursor-pointer",
               isActive
-                ? "border-accent text-accent bg-[#FFF4EE] dark:bg-accent/15 font-bold shadow-xs"
-                : "border-[#ddd6ce] text-muted bg-white dark:bg-cream/10 hover:border-accent hover:text-accent"
+                ? "border-[#F16521] text-[#F16521] bg-[#FFF4EE] dark:bg-[#F16521]/20 font-black shadow-xs"
+                : "border-[#d8d2cb] text-[#1C1917] dark:text-zinc-200 bg-white dark:bg-zinc-800 font-extrabold hover:border-[#F16521] hover:text-[#F16521]"
             )}
           >
             {tab.label}
