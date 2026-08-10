@@ -3,7 +3,6 @@
 import React from "react";
 import { PRODUCTS } from "@/data/mock";
 import { useFilterStore } from "@/store";
-import { SortOption } from "@/types";
 
 const PRICE_BANDS = [
   { label: "Under ₹10,000", test: (price: number) => price < 10000 },
@@ -36,27 +35,27 @@ export function FilterSidebar() {
 
   return (
     <aside
-      className="md:sticky md:top-36 self-start flex flex-col gap-5 p-4 border border-line rounded-xl bg-white dark:bg-[#1C1815] shadow-xs"
+      className="md:sticky md:top-36 self-start flex flex-col gap-5 p-4 sm:p-5 border border-[#E9E3DC] dark:border-zinc-800 rounded-2xl bg-white dark:bg-[#18181B] shadow-xs transition-colors"
       aria-label="Product Filters"
     >
       {/* Category Filter Group */}
       <div className="space-y-2">
-        <h4 className="font-head text-sm font-bold text-brown dark:text-accent border-b border-line pb-1.5">
+        <h4 className="font-head text-sm font-extrabold text-[#8B5E3C] dark:text-[#F16521] border-b border-[#E9E3DC] dark:border-zinc-800 pb-1.5 tracking-wide">
           Category
         </h4>
-        <div className="space-y-1 max-h-44 overflow-y-auto pr-1">
+        <div className="space-y-1.5 max-h-44 overflow-y-auto pr-1">
           {categories.map((cat) => (
             <label
               key={cat}
-              className="flex items-center gap-2 text-xs text-ink cursor-pointer hover:text-accent"
+              className="flex items-center gap-2.5 text-xs font-semibold text-[#1C1917] dark:text-zinc-100 cursor-pointer hover:text-[#F16521] dark:hover:text-[#F16521] transition-colors py-0.5"
             >
               <input
                 type="checkbox"
                 checked={cats.includes(cat)}
                 onChange={() => toggleCategory(cat)}
-                className="w-4 h-4 accent-accent cursor-pointer"
+                className="w-4 h-4 accent-[#F16521] cursor-pointer rounded"
               />
-              {cat}
+              <span>{cat}</span>
             </label>
           ))}
         </div>
@@ -64,23 +63,23 @@ export function FilterSidebar() {
 
       {/* Price Band Filter Group */}
       <div className="space-y-2">
-        <h4 className="font-head text-sm font-bold text-brown dark:text-accent border-b border-line pb-1.5">
+        <h4 className="font-head text-sm font-extrabold text-[#8B5E3C] dark:text-[#F16521] border-b border-[#E9E3DC] dark:border-zinc-800 pb-1.5 tracking-wide">
           Price
         </h4>
-        <div className="space-y-1">
+        <div className="space-y-1.5">
           {PRICE_BANDS.map((band, idx) => (
             <label
               key={band.label}
-              className="flex items-center gap-2 text-xs text-ink cursor-pointer hover:text-accent"
+              className="flex items-center gap-2.5 text-xs font-semibold text-[#1C1917] dark:text-zinc-100 cursor-pointer hover:text-[#F16521] dark:hover:text-[#F16521] transition-colors py-0.5"
             >
               <input
                 type="radio"
                 name="priceBand"
                 checked={priceBand === idx}
                 onChange={() => setPriceBand(priceBand === idx ? null : idx)}
-                className="w-4 h-4 accent-accent cursor-pointer"
+                className="w-4 h-4 accent-[#F16521] cursor-pointer"
               />
-              {band.label}
+              <span>{band.label}</span>
             </label>
           ))}
         </div>
@@ -88,22 +87,22 @@ export function FilterSidebar() {
 
       {/* Material Filter Group */}
       <div className="space-y-2">
-        <h4 className="font-head text-sm font-bold text-brown dark:text-accent border-b border-line pb-1.5">
+        <h4 className="font-head text-sm font-extrabold text-[#8B5E3C] dark:text-[#F16521] border-b border-[#E9E3DC] dark:border-zinc-800 pb-1.5 tracking-wide">
           Material
         </h4>
-        <div className="space-y-1 max-h-36 overflow-y-auto pr-1">
+        <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1">
           {materials.map((mat) => (
             <label
               key={mat}
-              className="flex items-center gap-2 text-xs text-ink cursor-pointer hover:text-accent"
+              className="flex items-center gap-2.5 text-xs font-semibold text-[#1C1917] dark:text-zinc-100 cursor-pointer hover:text-[#F16521] dark:hover:text-[#F16521] transition-colors py-0.5"
             >
               <input
                 type="checkbox"
                 checked={mats.includes(mat)}
                 onChange={() => toggleMaterial(mat)}
-                className="w-4 h-4 accent-accent cursor-pointer"
+                className="w-4 h-4 accent-[#F16521] cursor-pointer rounded"
               />
-              {mat}
+              <span>{mat}</span>
             </label>
           ))}
         </div>
@@ -111,22 +110,22 @@ export function FilterSidebar() {
 
       {/* Colour Filter Group */}
       <div className="space-y-2">
-        <h4 className="font-head text-sm font-bold text-brown dark:text-accent border-b border-line pb-1.5">
+        <h4 className="font-head text-sm font-extrabold text-[#8B5E3C] dark:text-[#F16521] border-b border-[#E9E3DC] dark:border-zinc-800 pb-1.5 tracking-wide">
           Colour
         </h4>
-        <div className="space-y-1 max-h-36 overflow-y-auto pr-1">
+        <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1">
           {colorList.map((col) => (
             <label
               key={col}
-              className="flex items-center gap-2 text-xs text-ink cursor-pointer hover:text-accent"
+              className="flex items-center gap-2.5 text-xs font-semibold text-[#1C1917] dark:text-zinc-100 cursor-pointer hover:text-[#F16521] dark:hover:text-[#F16521] transition-colors py-0.5"
             >
               <input
                 type="checkbox"
                 checked={colors.includes(col)}
                 onChange={() => toggleColor(col)}
-                className="w-4 h-4 accent-accent cursor-pointer"
+                className="w-4 h-4 accent-[#F16521] cursor-pointer rounded"
               />
-              {col}
+              <span>{col}</span>
             </label>
           ))}
         </div>
@@ -134,23 +133,23 @@ export function FilterSidebar() {
 
       {/* Rating Filter Group */}
       <div className="space-y-2">
-        <h4 className="font-head text-sm font-bold text-brown dark:text-accent border-b border-line pb-1.5">
+        <h4 className="font-head text-sm font-extrabold text-[#8B5E3C] dark:text-[#F16521] border-b border-[#E9E3DC] dark:border-zinc-800 pb-1.5 tracking-wide">
           Rating
         </h4>
-        <div className="space-y-1">
+        <div className="space-y-1.5">
           {[4.5, 4, 3].map((r) => (
             <label
               key={r}
-              className="flex items-center gap-2 text-xs text-ink cursor-pointer hover:text-accent"
+              className="flex items-center gap-2.5 text-xs font-semibold text-[#1C1917] dark:text-zinc-100 cursor-pointer hover:text-[#F16521] dark:hover:text-[#F16521] transition-colors py-0.5"
             >
               <input
                 type="radio"
                 name="ratingFilter"
                 checked={minRating === r}
                 onChange={() => setMinRating(minRating === r ? 0 : r)}
-                className="w-4 h-4 accent-accent cursor-pointer"
+                className="w-4 h-4 accent-[#F16521] cursor-pointer"
               />
-              {r}★ & above
+              <span>{r}★ & above</span>
             </label>
           ))}
         </div>
@@ -159,7 +158,7 @@ export function FilterSidebar() {
       {/* Clear All Filters */}
       <button
         onClick={clearAllFilters}
-        className="text-xs text-accent font-bold underline hover:opacity-80 transition-opacity self-start cursor-pointer"
+        className="text-xs text-[#F16521] font-extrabold underline hover:opacity-80 transition-opacity self-start cursor-pointer pt-1"
       >
         Clear all filters
       </button>
