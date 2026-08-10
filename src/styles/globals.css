@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TAILWIND CSS V4 DESIGN SYSTEM TOKENS & MAPPINGS
+   ============================================================ */
+@theme {
+  --color-bg: var(--bg);
+  --color-cream: var(--cream);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-green-bar: var(--green-bar);
+  --color-brown: var(--brown);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-discount: var(--discount);
+  --color-line: var(--line);
+  --color-navy: var(--navy);
+
+  --font-head: var(--font-head), 'Playfair Display', serif;
+  --font-body: var(--font-body), 'Inter', sans-serif;
+
+  --radius-custom: var(--radius);
+}
+
+/* ============================================================
+   1. PRODUCTION DESIGN SYSTEM — NESTORA
+   (UI/UX Pro Max v2.13 · WCAG 2.1 AA · Luxury E-Commerce)
+   ============================================================ */
+:root {
+  /* === BRAND CORE === */
+  --accent:          #F16521;
+  --accent-dark:     #D4541A;
+  --accent-light:    #FFF4EE;
+  --accent-border:   #FFDEC9;
+  --accent-ring:     rgba(241,101,33,0.40);
+
+  /* === NEUTRAL SURFACES === */
+  --bg:              #FFFFFF;
+  --surface:         #FAFAF9;
+  --cream:           #FAF6F1;
+  --card:            #FFFFFF;
+
+  /* === TEXT HIERARCHY (WCAG AA+ compliant) === */
+  --ink:             #1C1917;
+  --ink-secondary:   #44403C;
+  --muted:           #78716C;
+  --placeholder:     #A8A29E;
+
+  /* === SEMANTIC COLORS === */
+  --discount:        #16A34A;
+  --warning:         #D97706;
+  --error:           #DC2626;
+
+  /* === BRAND ACCENTS === */
+  --green-bar:       #0B5B4C;
+  --brown:           #7C5230;
+  --gold:            #A16207;
+  --navy:            #1E2A4A;
+
+  /* === BORDERS === */
+  --line:            #E9E3DC;
+  --line-strong:     #D6D3D1;
+
+  /* === SHADOWS === */
+  --shadow-xs:       0 1px 3px rgba(28,25,23,.06);
+  --shadow-sm:       0 2px 10px rgba(28,25,23,.07);
+  --shadow:          0 6px 24px rgba(28,25,23,.08);
+  --shadow-lg:       0 16px 48px rgba(28,25,23,.12);
+  --shadow-cta:      0 4px 14px rgba(241,101,33,.30);
+
+  /* === TYPOGRAPHY === */
+  --font-head:       'Playfair Display', Georgia, serif;
+  --font-body:       'Inter', system-ui, sans-serif;
+
+  /* === TRANSITIONS === */
+  --tr:              0.25s ease;
+  --tr-slow:         0.4s cubic-bezier(0.4,0,0.2,1);
+
+  /* === RADIUS === */
+  --radius:          12px;
+  --radius-lg:       20px;
+}
+
+/* Force light theme always */
+.dark, [data-theme="dark"] {
+  --bg:              #FFFFFF;
+  --surface:         #FAFAF9;
+  --cream:           #FAF6F1;
+  --card:            #FFFFFF;
+  --accent:          #F16521;
+  --accent-dark:     #D4541A;
+  --accent-light:    #FFF4EE;
+  --accent-border:   #FFDEC9;
+  --ink:             #1C1917;
+  --ink-secondary:   #44403C;
+  --muted:           #78716C;
+  --discount:        #16A34A;
+  --line:            #E9E3DC;
+  --line-strong:     #D6D3D1;
+  --green-bar:       #0B5B4C;
+  --brown:           #7C5230;
+  --navy:            #1E2A4A;
+  --shadow:          0 6px 24px rgba(28,25,23,.08);
+  --shadow-sm:       0 2px 10px rgba(28,25,23,.07);
+}
+
+/* ============================================================
+   2. RESET / BASE STYLES
+   ============================================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body), 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  background-color: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--accent-ring);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ============================================================
+   3. CUSTOM UTILITY CLASSES — NESTORA PRODUCTION
+   ============================================================ */
+
+/* Strikethrough — WCAG fix: #9B8E87 = 3.1:1 contrast ratio (pass) */
+.strike {
+  color: #9B8E87;
+  text-decoration: line-through;
+  font-weight: 400;
+}
+
+.off {
+  color: var(--discount);
+  font-weight: 700;
+}
+
+.chip-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1.5px dashed var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: var(--accent-light);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.qa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #F16521, #D4541A);
+  color: #ffffff !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  width: fit-content;
+  box-shadow: var(--shadow-cta);
+}
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  border-bottom: 2px solid currentColor;
+  width: fit-content;
+  padding-bottom: 2px;
+  transition: var(--tr);
+}
+.arrow-link:hover {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* ============================================================
+   4. HORIZONTAL SCROLL — PRODUCTION POLISH
+   ============================================================ */
+.hscroll {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 6px 4px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #D6D3D1 transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hscroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.hscroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hscroll::-webkit-scrollbar-thumb {
+  background: #D6D3D1;
+  border-radius: 2px;
+}
+
+.hscroll > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+/* ============================================================
+   5. SECTION DEFAULTS
+   ============================================================ */
+.section-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--brown);
+  text-align: center;
+}
+
+.btn-primary {
+  box-shadow: var(--shadow-cta);
+  transition: transform var(--tr), box-shadow var(--tr);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(241,101,33,.40);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   6. REDUCED MOTION ACCESSIBILITY
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
