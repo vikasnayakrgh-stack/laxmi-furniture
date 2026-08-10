@@ -22,7 +22,7 @@ export function MainHeader() {
   };
 
   return (
-    <div className="sticky top-0 z-40 bg-white border-b border-[#E9E3DC] shadow-xs transition-colors">
+    <div className="sticky top-0 z-40 bg-white dark:bg-[#18181B] border-b border-[#E9E3DC] dark:border-zinc-800 shadow-xs transition-colors">
       <div className="max-w-[1280px] mx-auto px-5 py-3.5 flex items-center justify-between gap-5">
         {/* Hamburger Mobile Toggle */}
         <button
